@@ -13,4 +13,4 @@ client = TestClient(app)
 def test_read_home():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello, World"}
+    assert response.headers["content-type"] == "text/html; charset=utf-8"
