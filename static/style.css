@@ -1,0 +1,30 @@
+/*
+Thanks to Herman Martinus for the inspiration!
+https://herman.bearblog.dev/
+*/
+
+body {
+    background-color: #161b22;
+    color: #fff;
+    font-family: sans-serif;
+    margin: auto;
+    padding: 20px;
+    font-size: 1em;
+}
+
+a {
+    color: #8cc2dd;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.title h1 { font-size: 1.5em;
+    color: #fff;
+}
+
+.title:hover {
+    text-decoration: none;
+}
