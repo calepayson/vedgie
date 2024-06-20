@@ -17,6 +17,10 @@ a {
     text-decoration: none;
 }
 
+nav a {
+    margin-right: 8px;
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -27,4 +31,9 @@ a:hover {
 
 .title:hover {
     text-decoration: none;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
 }

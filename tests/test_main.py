@@ -9,20 +9,66 @@ from app.main import app
 
 client = TestClient(app)
 
-
-def test_read_home():
+class TestHome:
     response = client.get("/")
-    assert response.status_code == 200
-    assert response.headers["content-type"] == "text/html; charset=utf-8"
 
-def test_home_header():
-    response = client.get("/")
-    assert "<header>" in response.text
+    def test_read_home(self):
+        assert self.response.status_code == 200
+        assert self.response.headers["content-type"] == "text/html; charset=utf-8"
+    
+    def test_home_header(self):
+        assert "<header>" in self.response.text
+    
+    def test_home_content(self):
+        assert "<main>" in self.response.text
+    
+    def test_home_footer(self):
+        assert "<footer>" in self.response.text
 
-def test_home_content():
-    response = client.get("/")
-    assert "<main>" in response.text
+class TestBio:
+    response = client.get("/bio")
 
-def test_home_footer():
-    response = client.get("/")
-    assert "<footer>" in response.text
+    def test_read_bio(self):
+        assert self.response.status_code == 200
+        assert self.response.headers["content-type"] == "text/html; charset=utf-8"
+    
+    def test_bio_header(self):
+        assert "<header>" in self.response.text
+    
+    def test_bio_content(self):
+        assert "<main>" in self.response.text
+    
+    def test_bio_footer(self):
+        assert "<footer>" in self.response.text
+
+class TestMedia:
+    response = client.get("/media")
+
+    def test_read_media(self):
+        assert self.response.status_code == 200
+        assert self.response.headers["content-type"] == "text/html; charset=utf-8"
+    
+    def test_media_header(self):
+        assert "<header>" in self.response.text
+    
+    def test_media_content(self):
+        assert "<main>" in self.response.text
+    
+    def test_media_footer(self):
+        assert "<footer>" in self.response.text
+
+class TestWriting:
+    response = client.get("/writing")
+
+    def test_read_writing(self):
+        assert self.response.status_code == 200
+        assert self.response.headers["content-type"] == "text/html; charset=utf-8"
+    
+    def test_writing_header(self):
+        assert "<header>" in self.response.text
+    
+    def test_writing_content(self):
+        assert "<main>" in self.response.text
+    
+    def test_writing_footer(self):
+        assert "<footer>" in self.response.text

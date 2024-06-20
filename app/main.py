@@ -15,3 +15,15 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 def read_home(request: Request):
     return templates.TemplateResponse(request=request, name="home_content.html")
+
+@app.get("/bio", response_class=HTMLResponse)
+def read_bio(request: Request):
+    return templates.TemplateResponse(request=request, name="bio_content.html")
+
+@app.get("/media", response_class=HTMLResponse)
+def read_media(request: Request):
+    return templates.TemplateResponse(request=request, name="media_content.html")
+
+@app.get("/writing", response_class=HTMLResponse)
+def read_writing(request: Request):
+    return templates.TemplateResponse(request=request, name="writing_content.html")
