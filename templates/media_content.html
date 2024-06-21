@@ -2,9 +2,11 @@
 {% block content %}
 <main>
     <h1>Media</h1>
-    <h3>Here are some photos and art</h3>
-    <p>Lorem.</p>
-    <p>Ipsum.</p>
-    <p>Dolore.</p>
+    <div id="gallery">
+      {% for image in images %}
+      <h3>{{ image }}</h3>
+      <img src="{{ '/static/images/' + image }}" alt="Image">
+      {% endfor %}
+    </div>
 </main>
 {% endblock %}

@@ -57,6 +57,9 @@ class TestMedia:
     def test_media_footer(self):
         assert "<footer>" in self.response.text
 
+    def test_image_in_media(self):
+        assert "<img" in self.response.text
+
 class TestWriting:
     response = client.get("/writing")
 

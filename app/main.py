@@ -1,10 +1,13 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import os
+import markdown2
 
 
 app = FastAPI()
+
 
 # Mount the static files directory
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -22,8 +25,21 @@ def read_bio(request: Request):
 
 @app.get("/media", response_class=HTMLResponse)
 def read_media(request: Request):
-    return templates.TemplateResponse(request=request, name="media_content.html")
+    images = os.listdir("static/images/")
+    return templates.TemplateResponse("media_content.html", {"request": request, "images":images})
 
 @app.get("/writing", response_class=HTMLResponse)
 def read_writing(request: Request):
-    return templates.TemplateResponse(request=request, name="writing_content.html")
+    article_dir = "static/articles"
+    articles = [f for f in os.listdir(article_dir)]
+    return templates.TemplateResponse("writing_content.html", {"request": request, "articles": articles})
+
+@app.get("/writing/{file_name}", response_class=HTMLResponse)
+def read_article(request: Request, file_name: str):
+    file_path = f"static/articles/{file_name}"
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail=f"File not found: {file_name}")
+    with open(file_path, "r") as file:
+        markdown_text = file.read()
+    html_content = markdown2.markdown(markdown_text)
+    return templates.TemplateResponse("article_content.html", {"request": request, "html_content": html_content})

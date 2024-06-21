@@ -10,6 +10,8 @@ body {
     margin: auto;
     padding: 20px;
     font-size: 1em;
+    max-width: 720px;
+    line-height: 1.5;
 }
 
 a {
