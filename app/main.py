@@ -4,8 +4,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import markdown2
 import os
+from pydantic import BaseModel
 
 from .utils.lib import file_name_to_title
+
+
+class ArticleMetaData(BaseModel):
+    file_name: str
+    title: str
 
 
 app = FastAPI()
@@ -36,18 +42,19 @@ def read_media(request: Request):
 
 @app.get("/writing", response_class=HTMLResponse)
 def read_writing(request: Request):
-    article_dir = "static/articles"
-    article_files = [f for f in os.listdir(article_dir)]
-    article_titles = [file_name_to_title(f) for f in article_files]
-    article_count = len(article_files)
+    articles = []
+    for f in os.listdir("static/articles"):
+        articles.append(ArticleMetaData(
+            file_name = f,
+            title = file_name_to_title(f)
+            ))
+
     return templates.TemplateResponse(
-            "writing_content.html", 
-            {
-                "request": request, 
-                "article_files": article_files,
-                "article_titles": article_titles,
-                "article_count": article_count,
-            })
+            request=request,
+            name="writing_content.html",
+            context={"articles":articles}
+            )
+            
 
 @app.get("/writing/{file_name}", response_class=HTMLResponse)
 def read_article(request: Request, file_name: str):

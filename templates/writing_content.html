@@ -3,8 +3,8 @@
 <main>
   <h1>Writing</h1>
   <ul>
-    {% for i in range(article_count) %}
-      <li><a href="/writing/{{ article_files[i] }}">{{ article_titles[i] }}</a></li>
+    {% for article in articles %}
+      <li><a href="/writing/{{ article.file_name }}">{{ article.title }}</a></li>
     {% endfor %}
   </ul>
 </main>
