@@ -23,6 +23,6 @@ jobs:
       - name: Create the .ssh directory
         run: mkdir ~/.ssh && chmod 700 ~/.ssh
       - name: Install the deploy key
-        run: echo ${{ secrets.DEPLOY_KEY }} > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+        run: echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
       - name: Deploy the site
         run: ssh -i ~/.ssh/deploy deployer@${{ secrets.IP_ADDRESS }}
