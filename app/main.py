@@ -2,8 +2,10 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import os
 import markdown2
+import os
+
+from .utils.lib import file_name_to_title
 
 
 app = FastAPI()
@@ -31,8 +33,17 @@ def read_media(request: Request):
 @app.get("/writing", response_class=HTMLResponse)
 def read_writing(request: Request):
     article_dir = "static/articles"
-    articles = [f for f in os.listdir(article_dir)]
-    return templates.TemplateResponse("writing_content.html", {"request": request, "articles": articles})
+    article_files = [f for f in os.listdir(article_dir)]
+    article_titles = [file_name_to_title(f) for f in article_files]
+    article_count = len(article_files)
+    return templates.TemplateResponse(
+            "writing_content.html", 
+            {
+                "request": request, 
+                "article_files": article_files,
+                "article_titles": article_titles,
+                "article_count": article_count,
+            })
 
 @app.get("/writing/{file_name}", response_class=HTMLResponse)
 def read_article(request: Request, file_name: str):

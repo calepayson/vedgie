@@ -2,9 +2,9 @@
 {% block content %}
 <main>
     <h1>Writing</h1>
-    {% for article in articles %}
+    {% for i in range(article_count) %}
     <ul>
-      <li><a href="/writing/{{ article }}">{{ article[0:-2] }}</a></li>
+      <li><a href="/writing/{{ article_files[i] }}">{{ article_titles[i] }}</a></li>
     </ul>
     {% endfor %}
 </main>
