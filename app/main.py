@@ -36,23 +36,18 @@ def read_media(request: Request):
 
 @app.get("/writing", response_class=HTMLResponse)
 def read_writing(request: Request):
-    file_names = []
-    article_titles = []
-    article_count = 0
-    for f in os.listdir("static/articles"):
-        file_names.append(f)
-        article_titles.append(file_name_to_title(f))
-        article_count += 1
-
+    article_dir = "static/articles"
+    article_files = [f for f in os.listdir(article_dir)]
+    article_titles = [file_name_to_title(f) for f in article_files]
+    article_count = len(article_files)
     return templates.TemplateResponse(
-            request=request, 
-            name="writing_content.html", 
-            context={
-                "file_names": file_names,
+            "writing_content.html", 
+            {
+                "request": request, 
+                "article_files": article_files,
                 "article_titles": article_titles,
-                "article_count": article_count
-                }
-            )
+                "article_count": article_count,
+            })
 
 @app.get("/writing/{file_name}", response_class=HTMLResponse)
 def read_article(request: Request, file_name: str):

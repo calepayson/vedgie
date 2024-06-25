@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    <h1>Writing</h1>
-    <ul>
-      {% for i in range(article_count) %}
-        <li><a href="/writing/{{ file_names[i] }}">{{ article_titles[i] }}</a></li>
-      {% endfor %}
-    </ul>
+  <h1>Writing</h1>
+  <ul>
+    {% for i in range(article_count) %}
+      <li><a href="/writing/{{ article_files[i] }}">{{ article_titles[i] }}</a></li>
+    {% endfor %}
+  </ul>
 </main>
 {% endblock %}
