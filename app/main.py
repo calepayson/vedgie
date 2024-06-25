@@ -34,18 +34,20 @@ def read_bio(request: Request):
 @app.get("/media", response_class=HTMLResponse)
 def read_media(request: Request):
     images = os.listdir("static/images/")
-    return templates.TemplateResponse("media_content.html", {"request": request, "images":images})
+    return templates.TemplateResponse(
+            request=request, 
+            name="media_content.html", 
+            context={"images": images}
+            )
 
 @app.get("/writing", response_class=HTMLResponse)
 def read_writing(request: Request):
     articles = []
     for f in os.listdir("static/articles"):
         articles.append(ArticleMetaData(
-            file_name = f,
-            title = file_name_to_title(f)
+            file_name=f,
+            title=file_name_to_title(f)
         ))
-
-    article_count = len(articles)
 
     return templates.TemplateResponse(
             request=request, 
