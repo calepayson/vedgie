@@ -2,7 +2,7 @@
 
 ### Some Background
 
-I started learning CS by installing Arch Linux (with network manager) on an $80 laptop I named kermit and leaving for Europe. I figured, if I wanted to book train tickets or look up hostels or places to goI would have to learn about computers to do it. 
+I started learning CS by installing Arch Linux (with network manager) on an $80 laptop I named kermit and leaving for Europe. I figured, if I wanted to book train tickets or look up hostels or places to go I would have to learn about computers to do it. 
 
 Little did I know how much I had to learn.
 
