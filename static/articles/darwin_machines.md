@@ -10,7 +10,7 @@ If you, or anyone you know, is interested in these ideas or wants to build/is bu
 
 ### On Evolution:
 
-Near the end of his career Schrodinger wrote a book, "On Life", that provides a great lens through which to view biology: Life is unnatural... If you're a physicist.
+Near the end of his career Schrodinger wrote a book, "What is Life?", that provides a great lens through which to view biology: Life is unnatural... If you're a physicist.
 
 One of the defining pillars of physics is the second law of thermodynamics. Energy hates being concentrated. Yet here we are, squishy bags of water and energy suspended a few feet above the ground. It's a bit weird.
 
