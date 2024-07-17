@@ -44,13 +44,13 @@ Think of this like RAM vs. Disk.
 
 ### On Brains
 
-If you were to flatten out the brain on a table you would notice two things.
+If you were to flatten out the neocortex of the brain - the new bit that we think is important for intelligence - on a table you would notice two things.
 
 First, if you look at a cross-section of the brain (eye-level with the table), the brain is divided into ~6 layers. This layering forms the dominant narrative of how intelligence may work and is the basis for deep neural nets. The idea is, stimulus is piped into the "top" layer and filters down to the bottom layer, with each layer picking up on more and more abstract concepts. Three Blue One Brown does a good job of articulating this idea in a [video](https://youtu.be/aircAruvnKk?si=MMZ_O7NATm38f_DT&t=332).
 
 Second, if you look down on the brain from above, the brain is divided into columns. The smallest unit of these are minicolumns, bundles of 80-120 neurons that run perpendicular to the layers of the brain, from the "top" to the "bottom" (or vice versa, it doesn't matter). These minicolumns can then be grouped into cortical columns, which can be thought of as roughly hexagonal bundles of minicolumns, also running perpendicular to the layers of the brain.
 
-And that's about it. The brain is incredibly, wonderfully, complex. The neocortex, the new bit that we think is important for intelligence, is insanely complex too. And it's also basically a crumpled up sheet with the structure described above. At least that's the level of abstraction we'll be working with.
+And that's about it. The brain is incredibly, wonderfully, complex. The neocortex is insanely complex too. And it's also basically a crumpled up sheet with the structure described above. At least that's the level of abstraction we'll be working with.
 
 From the perspective of a bystander, modern machine learning seems to believe that the recipe for more intelligence is adding more layers. But based upon the homogeneity of neocortex it seems that, in biology, the recipe for more intelligence is adding more columns. A rat has the same number of layers as a chimp as a human, but the surface area of a rat's neocortex, a proxy for the number of columns, is less than a chimp which is less than a human.
 
